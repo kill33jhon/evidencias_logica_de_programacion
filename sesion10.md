@@ -19,101 +19,54 @@ Selecciona dos ejercicios de la sesión 10, impleméntalos, ejecútalos y propor
 
 ### EJERCICIO 1 
 
-### indice de masa
+Sesión 10
 
+Actividad:
 
-```java
+ Prueba, ejecución y explicación de ejercicios de lógica de programación.
 
-import java.util.Scanner;
+Selecciona dos ejercicios de la sesión 10, impleméntalos, ejecútalos y proporciona una explicación detallada de cada uno
 
-public class IMC {
-   public static void main(String[] args) {
-      Scanner input = new Scanner(System.in);
-      double weight, height, imc;
-      
-      // Solicita el peso y la altura
-      System.out.print("Ingrese su peso en kilogramos: ");
-      weight = input.nextDouble();
-      System.out.print("Ingrese su altura en metros: ");
-      height = input.nextDouble();
+Ejercicios de Lógica de Programación
 
-      // Calcula el IMC
-      imc = weight / (height * height);
+Crear un programa en Java para calcular el interés de un CDT Un CDT (Certificado de Depósito a Término) es un producto financiero en el que un inversor deposita una cantidad de dinero en un banco por un plazo determinado y a cambio recibe una tasa de interés fija. Al final del plazo, el inversor recupera su inversión inicial más los intereses generados. Aquí hay un ejemplo de cómo crear un programa en Java para calcular el interés de un CDT: ``` import java.util.Scanner; import java.text.DecimalFormat;
+public class Main { public static void main(String[] args) { DecimalFormat decimalFormat = new DecimalFormat(“#,###”); Scanner scanner = new Scanner(System.in);
 
-      // Muestra el resultado en la consola
-      System.out.printf("Su IMC es %.2f", imc);
-   }
-}
-```
-
-
-### EJERCICIO 2
-
-### calcular la cantidad d materiales para construir una pared de ladrillos
-
-```java
-
-
-import java.util.Scanner;
-
-public class CantidadLadrillos {
-   public static void main(String[] args) {
-      Scanner input = new Scanner(System.in);
-      double largo, alto, ancho, areaPared, cantidadLadrillos, largoLadrillo, altoLadrillo, anchoLadrillo;
-      
-      // Solicita las dimensiones de la pared
-      System.out.print("Ingrese el largo de la pared en metros: ");
-      largo = input.nextDouble();
-      System.out.print("Ingrese el alto de la pared en metros: ");
-      alto = input.nextDouble();
-      System.out.print("Ingrese el ancho de la pared en metros: ");
-      ancho = input.nextDouble();
-
-      // Solicita las dimensiones del ladrillo
-      System.out.print("Ingrese el largo del ladrillo en metros: ");
-      largoLadrillo = input.nextDouble();
-      System.out.print("Ingrese el alto del ladrillo en metros: ");
-      altoLadrillo = input.nextDouble();
-      System.out.print("Ingrese el ancho del ladrillo en metros: ");
-      anchoLadrillo = input.nextDouble();
-
-      // Calcula el área de la pared y del ladrillo
-      areaPared = largo * alto;
-      double areaLadrillo = largoLadrillo * altoLadrillo;
-
-      // Calcula la cantidad de ladrillos necesarios
-      cantidadLadrillos = Math.ceil(areaPared / (areaLadrillo * ancho / anchoLadrillo));
-
-      // Muestra el resultado en la consola
-      System.out.printf("Para construir la pared se necesitan %.0f ladrillos.", cantidadLadrillos);
-   }
-}
-
-```
-
-### EJERCICIO 3 calcular rectilineo uniforme
-
-### SOLUCION
+# SOLUCION
 
 ```java
 
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
-public class MRU {
-   public static void main(String[] args) {
-      Scanner input = new Scanner(System.in);
-      double velocidad, tiempo, distancia;
-      
-      // Solicita la velocidad y el tiempo
-      System.out.print("Ingrese la velocidad en metros por segundo: ");
-      velocidad = input.nextDouble();
-      System.out.print("Ingrese el tiempo en segundos: ");
-      tiempo = input.nextDouble();
+public class Main {
+    public static void main(String[] args) {
+        DecimalFormat decimalFormat = new DecimalFormat("#,###");
+        Scanner scanner = new Scanner(System.in);
 
-      // Calcula la distancia recorrida
-      distancia = velocidad * tiempo;
+        System.out.println("Bienvenido al calculador de CDT!");
 
-      // Muestra el resultado en la consola
-      System.out.printf("La distancia recorrida es de %.2f metros.", distancia);
-   }
+        // Pedir al usuario que ingrese los datos del CDT
+        System.out.print("Ingrese el monto del depósito: ");
+        double montoDeposito = scanner.nextDouble();
+
+        System.out.print("Ingrese la tasa de interés anual (%): ");
+        double tasaInteresAnual = scanner.nextDouble();
+
+        System.out.print("Ingrese el plazo en meses: ");
+        int plazoMeses = scanner.nextInt();
+
+        // Calcular el interés y el monto total al vencimiento
+        double tasaInteresMensual = tasaInteresAnual / 12 / 100;
+        double interesMensual = montoDeposito * tasaInteresMensual;
+        double montoTotalVencimiento = montoDeposito + (interesMensual * plazoMeses);
+
+        // Mostrar el resumen del CDT
+        System.out.println("Resumen del CDT:");
+        System.out.println("- Monto del depósito: $" + decimalFormat.format(montoDeposito));
+        System.out.println("- Tasa de interés anual: " + tasaInteresAnual + "%");
+        System.out.println("- Plazo en meses: " + plazoMeses);
+        System.out.println("- Interés mensual: $" + interesMensual);
+        System.out.println("- Monto total al vencimiento: $" + decimalFormat.format(montoTotalVencimiento));
+    }
 }
